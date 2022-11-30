@@ -1,0 +1,15 @@
+packages <- c("ggplot2", 
+			  "tidyverse", 
+			  "knitr", 
+			  "plotly", 
+			  "tidyr", 
+			  "dplyr", 
+			  "widgetframe", 
+			  "rmarkdown", 
+			  "zoo", 
+			  "EpiEstim", 
+			  "lubridate", 
+			  "readr", 
+			  "svglite",
+			  "scales")
+for (p in packages) if(!require(p, character.only=T)) install.packages(p)

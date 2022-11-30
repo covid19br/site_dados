@@ -1,0 +1,10 @@
+*~
+*.~
+.Rhistory
+.RData
+.Rproj.user
+*.Rproj
+.*.sw[opq]
+__pycache__/
+/src/link_midia_source.txt
+/src/emails.txt
