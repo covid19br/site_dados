@@ -186,7 +186,7 @@ p.br.ob.srag <- br.all %>% mutate(data = as.Date(data)) %>%
     ylab("Número de novos óbitos") +
     plot.formatos +
     theme(legend.position = "none")
-p.all <- (p.br.covid + p.br.srag) / (p.br.ob.covid + p.br.ob.srag)
+#p.all <- (p.br.covid + p.br.srag) / (p.br.ob.covid + p.br.ob.srag)
 
 print("Atualizando plots...")
 
