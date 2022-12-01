@@ -5,5 +5,5 @@ fix_libs_ref <- function(file, root) {
         nova <- gsub('href="libs', paste0('href="', root, 'libs'), nova)
         content[[i]] <- nova
     }
-    writeLines(file)
+    writeLines(content, file)
 }

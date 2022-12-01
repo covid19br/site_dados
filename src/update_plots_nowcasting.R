@@ -77,14 +77,8 @@ data.dir <- paste0(data.dir.root, name_path, "/")
 # dir para os outputs, separados em subpastas
 plot.dir <- paste0(plot.dir.root, name_path, "/")
 if (!dir.exists(plot.dir)) dir.create(plot.dir, recursive = TRUE)
-# dir relativo de web/ com relação ao caminho do plot
-if (escala == "país") {
-    rel.root.web <- '../'
-} else if (escala == "estado") {
-    rel.root.web <- '../../'
-} else {
-    rel.root.web <- '../../../'
-}
+# dir absoluto de web/
+path.web <- "/web/"
 
 
 # pegando a data mais recente
@@ -433,8 +427,8 @@ for (i in n[plots.true]) {
              saveWidget(frameableWidget(graph.html),
                         file = paste0(fig.name, ".html"),
                         selfcontained = FALSE,
-                        libdir = paste0(plot.dir.root, "libs")))
-    fix_libs_ref(paste0(fig.name, ".html"), rel.root.web)
+                        libdir = paste0("./libs")))
+    fix_libs_ref(paste0(plot.dir, fig.name, ".html"), path.web)
     #saveWidgetFix(frameableWidget(graph.html),
     #              file = paste0(plot.dir, fig.name, ".html"),
     #              libdir="./libs") # HTML Interative Plot
