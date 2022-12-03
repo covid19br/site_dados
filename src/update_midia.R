@@ -146,13 +146,14 @@ write_file(new.content, file.out)
 
 if (update.git) {
     emails <- str_trim(read_file('emails.txt'))
-    system(paste0("git commit -m ':robot: atualizando reportagens' ",
-                  file.out,
-                  " && git push",
+    system(paste0("oldpath=`pwd` && cd ", dirname(file.out), " && ",
+                  "git commit -m ':robot: atualizando reportagens' ",
+                  basename(file.out),
+                  " && git push && cd $oldpath ",
                   ' && (echo -e "Página de reportagens atualizada.\n
 O conteúdo novo abaixo aparecerá no site em alguns minutos.\n
 Atenciosamente,
-Robot mailer\n\n"; git diff --no-color HEAD~1 HEAD; ) | s-nail -s "Página de reportagens atualizada" ',
+Robot mailer\n\n"; oldpath=`pwd` && cd ', dirname(file.out), '&&  git diff --no-color HEAD~1 HEAD && cd $oldpath) | s-nail -s "Página de reportagens atualizada" ',
                   emails)
     )
 }
