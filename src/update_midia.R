@@ -10,7 +10,7 @@ update.git <- TRUE
 doc_link <- read_file('link_midia_source.txt')
 
 # destination file
-file.out <- "../midia.html"
+file.out <- "../../site/midia.html"
 
 # numeração das tabelas:
 # 1. tabela principal
@@ -38,7 +38,7 @@ reports.df <- reports.df %>%
            dateform = format(date, "%d/%m/%Y"),
            mesn = factor(format(date, "%m"), levels=str_pad(as.character(12:1), 2, pad="0")),
            mes = format(date, "%B"),
-           ano = factor(format(date, "%Y"), levels=as.character(2021:2020)),
+           ano = factor(format(date, "%Y"), levels=as.character(format(Sys.time(), "%Y"):2020)),
            baseaddress = link %>% str_replace("https?://", "") %>% str_replace("/.*$", "")) %>%
     arrange(desc(date))
 
